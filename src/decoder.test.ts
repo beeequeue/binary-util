@@ -51,3 +51,24 @@ it("should allow parsing simple data", () => {
 
   expect(parser.currentOffset).toBe(17)
 })
+
+it("should parse the README example", () => {
+  const data = Buffer.from([
+    // eslint-disable-next-line unicorn/number-literal-case
+    0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x57, 0x6f, 0x72, 0x6c, 0x64, 0x21,
+  ])
+  const decoder = new Decoder(data)
+
+  // You can use it to just read data straight from the buffer
+  expect(decoder.readString({ length: 5 })).toBe("Hello")
+  expect(decoder.readString({ length: 7 })).toBe(", World")
+
+  // Or you can use it more ergonomically when possible
+  const decoder2 = new Decoder(Buffer.alloc(2, 2))
+  const result = {
+    a: decoder2.readUint8(),
+    b: decoder2.readUint8(),
+  }
+
+  expect(result).toEqual({ a: 2, b: 2 })
+})
