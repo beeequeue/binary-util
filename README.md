@@ -4,7 +4,7 @@
 ![npm bundle size](https://deno.bundlejs.com/?q=binary-util&badge)
 ![node-current](https://img.shields.io/node/v/binary-util)
 
-A utility library for working with binary data in JavaScript and TypeScript.
+A utility library for working with binary data in.
 
 It does not have full support for all types of data, but it does have the ones I needed.
 

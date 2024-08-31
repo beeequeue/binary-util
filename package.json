@@ -1,5 +1,6 @@
 {
   "name": "binary-util",
+  "description": "A utility library for working with binary data.",
   "type": "module",
   "version": "0.0.0",
   "author": "BeeeQueue <adam@haglund.dev>",
