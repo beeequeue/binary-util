@@ -10,7 +10,7 @@ It does not have full support for all types of data, but it does have the ones I
 
 ## Usage
 
-A full example of how to use this library can be found in my [RE MSG library]().
+A full example of how to use this library can be found in my [RE MSG library](https://github.com/beeequeue/remsg).
 
 Here are some non-exhaustive examples:
 

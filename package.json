@@ -4,6 +4,10 @@
   "type": "module",
   "version": "0.0.0",
   "author": "BeeeQueue <adam@haglund.dev>",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/beeequeue/binary-util"
+  },
   "license": "MIT",
   "packageManager": "pnpm@9.9.0",
   "engines": {
@@ -46,6 +50,7 @@
     "eslint": "9.9.1",
     "lint-staged": "15.2.9",
     "prettier": "3.3.3",
+    "publint": "0.2.10",
     "simple-git-hooks": "2.11.1",
     "tsup": "8.2.4",
     "typescript": "5.5.4",
