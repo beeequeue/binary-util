@@ -1,4 +1,4 @@
-import baseFunctions from "@changesets/changelog-github"
+const { default: baseFunctions } = require("@changesets/changelog-github")
 
 /*
  * This is just a small wrapper around the base changelog-github formatter that
