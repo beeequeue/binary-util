@@ -54,6 +54,15 @@ it("should allow parsing simple data", () => {
   expect(parser.currentOffset).toBe(17)
 })
 
+it("should parse zeroed strings correctly", () => {
+  const data = Buffer.from("test\x00hello\x00world\x00")
+
+  const decoder = new Decoder(data)
+  expect(decoder.readString({ zeroed: true })).toBe("test")
+  expect(decoder.readString({ zeroed: true })).toBe("hello")
+  expect(decoder.readString({ zeroed: true })).toBe("world")
+})
+
 it("should parse the README example", () => {
   const data = Buffer.from([
     // eslint-disable-next-line unicorn/number-literal-case
