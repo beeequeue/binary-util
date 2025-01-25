@@ -12,6 +12,10 @@ type BaseOptions = {
   into: number
 }
 
+type StringOptions = BaseOptions & {
+  encoding?: BufferEncoding
+}
+
 type WriteNumberFunction<Value extends number | bigint = number | bigint> = (
   value: Value,
   opts?: BaseOptions,
@@ -145,10 +149,10 @@ export class Encoder {
     "writeDoubleBE",
   )
 
-  setString(value: string, opts?: BaseOptions): void {
+  setString(value: string, opts?: StringOptions): void {
     this.growIfNeeded(value.length)
 
-    this.#buffer.write(value, opts?.into ?? this.#currentOffset, "utf8")
+    this.#buffer.write(value, opts?.into ?? this.#currentOffset, opts?.encoding ?? "utf8")
 
     if (opts?.into == null) {
       this.#currentOffset += value.length

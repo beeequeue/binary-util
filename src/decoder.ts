@@ -6,7 +6,7 @@ type BaseOptions = {
 
 type BaseStringOptions = {
   wrap?: (str: Buffer) => Buffer
-  encoding?: "utf8"
+  encoding?: BufferEncoding
 }
 
 type BufferOptions = BaseOptions & { length: number }
@@ -189,10 +189,10 @@ export class Decoder {
   }
 
   readString(options: StringOptions): string {
-    let buffer: Buffer
+    let strBuffer: Buffer
 
     if ("length" in options) {
-      buffer = this.readBuffer(options)
+      strBuffer = this.readBuffer(options)
     }
 
     if ("zeroed" in options) {
@@ -202,11 +202,11 @@ export class Decoder {
       while (view.getUint8(this.#currentOffset + size) !== 0) {
         size++
       }
-      buffer = this.#buffer.subarray(0, size)
+      strBuffer = this.#buffer.subarray(0, size)
 
       this.#currentOffset += size
     }
 
-    return new TextDecoder().decode(buffer!)
+    return strBuffer!.toString(options.encoding ?? "utf8")
   }
 }
