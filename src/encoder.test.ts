@@ -210,10 +210,10 @@ describe.each(cases)(".%s", (method, size, convert) => {
 
 describe(".setString", () => {
   it("should write the string", () => {
-    const encoder = new Encoder(4)
+    const encoder = new Encoder(5)
     encoder.setString("test")
 
-    expect(encoder.buffer.toString()).toBe("test")
+    expect(encoder.buffer.toString()).toBe("test\x00")
   })
 
   it("should grow the buffer if needed", () => {
@@ -222,8 +222,8 @@ describe(".setString", () => {
     encoder.setString("test")
 
     const buffer = encoder.buffer
-    expect(buffer.length).toBe(6)
+    expect(buffer.length).toBe(7)
     expect(buffer[0]).toBe(1)
-    expect(buffer.subarray(2).toString("utf8")).toBe("test")
+    expect(buffer.subarray(2).toString("utf8")).toBe("test\x00")
   })
 })

@@ -150,12 +150,16 @@ export class Encoder {
   )
 
   setString(value: string, opts?: StringOptions): void {
-    this.growIfNeeded(value.length)
+    this.growIfNeeded(value.length + 1)
 
-    this.#buffer.write(value, opts?.into ?? this.#currentOffset, opts?.encoding ?? "utf8")
+    this.#buffer.write(
+      `${value}\x00`,
+      opts?.into ?? this.#currentOffset,
+      opts?.encoding ?? "utf8",
+    )
 
     if (opts?.into == null) {
-      this.#currentOffset += value.length
+      this.#currentOffset += value.length + 1
     }
   }
 
