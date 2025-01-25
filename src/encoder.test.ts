@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest"
+
 import { Encoder } from "./encoder"
 
 describe(".grow", () => {
@@ -164,7 +165,7 @@ const cases = [
 ] as const
 
 describe.each(cases)(".%s", (method, size, convert) => {
-  const num = (num: number) => convert?.(num) as never ?? num
+  const num = (num: number) => (convert?.(num) as never) ?? num
 
   it("should write a value", () => {
     const encoder = new Encoder(size)
