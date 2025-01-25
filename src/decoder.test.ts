@@ -55,9 +55,13 @@ it("should allow parsing simple data", () => {
 })
 
 it("should parse zeroed strings correctly", () => {
-  const data = Buffer.from("test\x00hello\x00world\x00")
+  const data = Buffer.concat([
+    Buffer.from([0x01]),
+    Buffer.from("test\x00hello\x00world\x00"),
+  ])
 
   const decoder = new Decoder(data)
+  expect(decoder.readUint8()).toBe(1)
   expect(decoder.readString({ zeroed: true })).toBe("test")
   expect(decoder.readString({ zeroed: true })).toBe("hello")
   expect(decoder.readString({ zeroed: true })).toBe("world")

@@ -49,7 +49,7 @@ export class Decoder {
   readInt8(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       1,
     )
 
@@ -62,7 +62,7 @@ export class Decoder {
   readUint8(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       1,
     )
 
@@ -75,7 +75,7 @@ export class Decoder {
   readInt16(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       2,
     )
 
@@ -88,7 +88,7 @@ export class Decoder {
   readUint16(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       2,
     )
 
@@ -101,7 +101,7 @@ export class Decoder {
   readInt32(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       4,
     )
 
@@ -114,7 +114,7 @@ export class Decoder {
   readUint32(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       4,
     )
 
@@ -127,7 +127,7 @@ export class Decoder {
   readInt64(opts?: BaseOptions): bigint {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       8,
     )
 
@@ -140,7 +140,7 @@ export class Decoder {
   readUint64(opts?: BaseOptions): bigint {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       8,
     )
 
@@ -153,7 +153,7 @@ export class Decoder {
   readFloat(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       4,
     )
 
@@ -166,7 +166,7 @@ export class Decoder {
   readDouble(opts?: BaseOptions): number {
     const view = new DataView(
       this.#buffer.buffer,
-      opts?.pointer ?? this.#currentOffset,
+      this.#buffer.byteOffset + (opts?.pointer ?? this.#currentOffset),
       8,
     )
 
@@ -196,17 +196,16 @@ export class Decoder {
     }
 
     if ("zeroed" in options) {
-      const subBuffer = this.#buffer.buffer.slice(
+      const view = new DataView(
+        this.#buffer.buffer,
         this.#buffer.byteOffset + this.#currentOffset,
-        this.#buffer.byteOffset + this.#buffer.byteLength,
       )
-      const view = new DataView(subBuffer)
 
       let size = 0
       while (view.getUint8(size) !== 0) {
         size++
       }
-      strBuffer = Buffer.from(subBuffer.slice(0, size))
+      strBuffer = this.#buffer.subarray(this.#currentOffset, this.#currentOffset + size)
 
       this.#currentOffset += size + 1
     }
