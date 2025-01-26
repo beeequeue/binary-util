@@ -150,16 +150,13 @@ export class Encoder {
   )
 
   setString(value: string, opts?: StringOptions): void {
-    this.growIfNeeded(value.length + 1)
+    const data = Buffer.from(`${value}\x00`, opts?.encoding ?? "utf8")
 
-    this.#buffer.write(
-      `${value}\x00`,
-      opts?.into ?? this.#currentOffset,
-      opts?.encoding ?? "utf8",
-    )
+    this.growIfNeeded(data.byteLength)
+    data.copy(this.#buffer, opts?.into ?? this.#currentOffset)
 
     if (opts?.into == null) {
-      this.#currentOffset += value.length + 1
+      this.#currentOffset += data.byteLength
     }
   }
 
