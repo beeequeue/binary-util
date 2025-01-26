@@ -216,6 +216,13 @@ describe(".setString", () => {
     expect(encoder.buffer.toString()).toBe("test\x00")
   })
 
+  it("should write 2-byte characters correctly", () => {
+    const encoder = new Encoder()
+    encoder.setString("Ûbercharge")
+
+    expect(encoder.buffer.toString()).toBe("Ûbercharge\x00")
+  })
+
   it("should grow the buffer if needed", () => {
     const encoder = new Encoder(2)
     encoder.setUint16(1)
