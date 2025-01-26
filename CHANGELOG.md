@@ -1,5 +1,11 @@
 # binary-util
 
+## 1.1.1
+
+### Patch Changes
+
+- [`9f885d8`](https://github.com/beeequeue/binary-util/commit/9f885d81996811092c9b135215e32061e9c25b82) Thanks [@beeequeue](https://github.com/beeequeue)! - Fixed writing strings containing multi-byte characters
+
 ## 1.1.0
 
 ### Minor Changes
