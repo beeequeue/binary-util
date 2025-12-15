@@ -11,4 +11,5 @@ export default defineConfig({
   format: "esm",
   dts: { tsgo: true },
   fixedExtension: true,
+  minify: "dce-only",
 })
