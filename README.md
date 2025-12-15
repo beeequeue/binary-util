@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/binary-util)](https://www.npmjs.com/package/binary-util)
 [![npm unpacked size](https://img.shields.io/npm/unpacked-size/binary-util)](https://npmgraph.js.org/?q=binary-util#zoom=w&select=binary-util%401.1.1)
-[![npm bundle size](https://img.shields.io/badge/bundled%20size-3.69%20kB-blue)](https://bundlejs.com/?bundle&q=binary-util&treeshake=[*])
+[![npm bundle size](https://img.shields.io/badge/bundled%20size-3.8%20kB-blue)](https://bundlejs.com/?bundle&q=binary-util&treeshake=[*])
 ![node-current](https://img.shields.io/node/v/binary-util)
 
 A utility library for working with binary data in.
