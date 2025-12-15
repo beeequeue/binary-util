@@ -2,4 +2,4 @@
 "binary-util": major
 ---
 
-Now requires Node 22.19+.
+Now requires Node 20.19+.
