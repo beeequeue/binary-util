@@ -389,6 +389,16 @@ export class Decoder {
    * @param opts.zeroed - Read until a null terminator (`0x00`) is reached.
    * @param opts.length - Bytes to read.
    * @param opts.encoding - Defaults to `utf8`.
+   * @example Zeroed
+   * ```ts
+   * const decoder = new Decoder(Buffer.from([0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x00]))
+   * decoder.readString({ zeroed: true }) // "hello"
+   * ```
+   * @example Length
+   * ```ts
+   * const decoder = new Decoder(Buffer.from([0x68, 0x65, 0x6c, 0x6c, 0x6f]))
+   * decoder.readString({ length: 5 }) // "hello"
+   * ```
    */
   readString(opts: StringOptions): string {
     let strBuffer: Buffer | null = null
