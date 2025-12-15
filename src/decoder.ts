@@ -5,7 +5,6 @@ type BaseOptions = {
 }
 
 type BaseStringOptions = {
-  wrap?: (str: Buffer) => Buffer
   encoding?: BufferEncoding
 }
 
@@ -386,20 +385,19 @@ export class Decoder {
   /**
    * Reads a string from the buffer. Defaults to `utf8`.
    *
-   * @param options - Requires either `zeroed` or `length`.
-   * @param options.zeroed - Read until a null terminator (`0x00`) is reached.
-   * @param options.length - Bytes to read.
-   * @param options.encoding - Defaults to `utf8`.
-   * @param options.wrap - ?
+   * @param opts - Requires either `zeroed` or `length`.
+   * @param opts.zeroed - Read until a null terminator (`0x00`) is reached.
+   * @param opts.length - Bytes to read.
+   * @param opts.encoding - Defaults to `utf8`.
    */
-  readString(options: StringOptions): string {
-    let strBuffer: Buffer
+  readString(opts: StringOptions): string {
+    let strBuffer: Buffer | null = null
 
-    if ("length" in options) {
-      strBuffer = this.readBuffer(options)
+    if ("length" in opts && opts.length != null) {
+      strBuffer = this.readBuffer(opts)
     }
 
-    if ("zeroed" in options) {
+    if ("zeroed" in opts && opts.zeroed) {
       const view = new DataView(
         this.#buffer.buffer,
         this.#buffer.byteOffset + this.#currentOffset,
@@ -414,6 +412,10 @@ export class Decoder {
       this.#currentOffset += size + 1
     }
 
-    return strBuffer!.toString(options.encoding ?? "utf8")
+    if (strBuffer == null) {
+      throw new Error("You need to specify either `zeroed` or `length`.")
+    }
+
+    return strBuffer.toString(opts.encoding ?? "utf8")
   }
 }
