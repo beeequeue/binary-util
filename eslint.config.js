@@ -16,6 +16,7 @@ export default antfu({
       "antfu/no-top-level-await": "off",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
       "node/prefer-global/process": "off",
+      "unicorn/number-literal-case": "off",
       "ts/consistent-type-definitions": "off",
       "ts/consistent-type-imports": [
         "error",
