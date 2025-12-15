@@ -26,7 +26,7 @@
     "CHANGELOG.md"
   ],
   "exports": {
-    "default": "./dist/index.js"
+    "default": "./dist/index.mjs"
   },
   "scripts": {
     "build": "tsdown",
