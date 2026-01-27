@@ -7,9 +7,8 @@ overrides:
   "@antfu/eslint-config>eslint-processor-vue-blocks": "-"
   "@antfu/eslint-config>jsonc-eslint-parser": "-"
   "@antfu/eslint-config>toml-eslint-parser": "-"
-  "@antfu/eslint-config>vitest": "-"
   eslint-plugin-pnpm>jsonc-eslint-parser: "-"
-  vite: npm:rolldown-vite@latest
+  vite: beta
 
 savePrefix: ""
 shellEmulator: true

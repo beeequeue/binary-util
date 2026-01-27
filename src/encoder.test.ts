@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { Encoder } from "./encoder"
+import { Encoder } from "../dist/encoder.mjs"
 
 describe(".grow", () => {
   it("should grow by the given size", () => {

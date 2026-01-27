@@ -2,7 +2,7 @@ import { Buffer } from "node:buffer"
 
 import { describe, expect, it } from "vitest"
 
-import { Decoder } from "./decoder"
+import { Decoder } from "../dist/decoder.mjs"
 
 describe(".currentOffset", () => {
   it("example works as described", () => {
