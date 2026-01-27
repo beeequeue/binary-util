@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest"
 
+// eslint-disable-next-line antfu/no-import-dist
 import { Encoder } from "../dist/encoder.mjs"
 
 describe(".grow", () => {

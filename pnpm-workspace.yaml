@@ -10,6 +10,8 @@ overrides:
   eslint-plugin-pnpm>jsonc-eslint-parser: "-"
   vite: beta
 
+enableGlobalVirtualStore: false
+
 savePrefix: ""
 shellEmulator: true
 minimumReleaseAge: 1440

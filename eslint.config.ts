@@ -6,17 +6,18 @@ export default antfu({
   stylistic: false,
   jsonc: false,
   jsx: false,
-  toml: false,
   pnpm: false,
+  toml: false,
+  test: { overrides: { "test/no-import-node-test": "off" } },
   typescript: {
     tsconfigPath: "tsconfig.json",
+    ignoresTypeAware: ["copy.ts", "*.config.*"],
 
     overrides: {
       "no-console": "off",
       "antfu/no-top-level-await": "off",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
       "node/prefer-global/process": "off",
-      "unicorn/number-literal-case": "off",
       "ts/consistent-type-definitions": "off",
       "ts/consistent-type-imports": [
         "error",
@@ -25,6 +26,7 @@ export default antfu({
       "ts/no-unsafe-argument": "off",
       "ts/no-unsafe-assignment": "off",
       "ts/no-use-before-define": "off",
+      "unicorn/number-literal-case": "off",
       "unused-imports/no-unused-vars": "off",
 
       "perfectionist/sort-imports": [
@@ -32,19 +34,18 @@ export default antfu({
         {
           type: "natural",
           internalPattern: ["^@/", "^~/", "^#[a-zA-Z0-9-]+/"],
-          newlinesBetween: "always",
+          newlinesBetween: 1,
           groups: [
-            ["builtin", "builtin-type"],
-            ["external", "external-type"],
-            ["internal", "internal-type"],
-            ["parent", "parent-type"],
-            ["sibling", "sibling-type"],
-            ["index", "index-type"],
-            "object",
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
             "unknown",
           ],
         },
       ],
     },
   },
-})
+}) as never

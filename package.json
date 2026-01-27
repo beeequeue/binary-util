@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "tsdown",
-    "lint": "eslint",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config",
     "test": "vitest",
     "typecheck": "tsgo",
     "prepare": "simple-git-hooks"

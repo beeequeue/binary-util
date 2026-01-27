@@ -2,6 +2,7 @@ import { Buffer } from "node:buffer"
 
 import { describe, expect, it } from "vitest"
 
+// eslint-disable-next-line antfu/no-import-dist
 import { Decoder } from "../dist/decoder.mjs"
 
 describe(".currentOffset", () => {
