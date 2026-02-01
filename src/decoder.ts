@@ -1,11 +1,11 @@
-import type { Buffer } from "node:buffer"
+import { TextDecoder } from "node:util"
 
 type BaseOptions = {
   pointer?: number
 }
 
 type BaseStringOptions = {
-  encoding?: BufferEncoding
+  encoding?: "utf8"
 }
 
 type BufferOptions = BaseOptions & { length: number }
@@ -13,7 +13,7 @@ type BufferOptions = BaseOptions & { length: number }
 type StringOptions = BaseStringOptions & ({ length: number } | { zeroed: boolean })
 
 export class Decoder {
-  #buffer: Buffer
+  #buffer: Uint8Array
   #currentOffset = 0
   #littleEndian = true
 
@@ -23,7 +23,7 @@ export class Decoder {
    *
    * Defaults to little endian.
    */
-  constructor(buffer: Buffer) {
+  constructor(buffer: Uint8Array) {
     this.#buffer = buffer
   }
 
@@ -32,8 +32,8 @@ export class Decoder {
    *
    * @example
    * ```ts
-   * //                          1   + 256 + 0   + 0
-   * const buffer = Buffer.from([0x01, 0x01, 0x00, 0x00])
+   * //                                     1   + 256 + 0   + 0
+   * const buffer = new Uint8Array([0x01, 0x01, 0x00, 0x00])
    * const decoder = new Decoder(buffer)
    * decoder.readUint32() // 257
    * decoder.currentOffset // 4
@@ -48,8 +48,8 @@ export class Decoder {
    * @param endianness - `big` or `little`
    * @example
    * ```ts
-   * //                          0   + 0   + 256 + 1
-   * const buffer = Buffer.from([0x00, 0x00, 0x01, 0x01])
+   * //                                     0   + 0   + 256 + 1
+   * const buffer = new Uint8Array([0x00, 0x00, 0x01, 0x01])
    * const decoder = new Decoder(buffer)
    * decoder.endianness("big")
    * decoder.readUint32() // 257
@@ -65,8 +65,8 @@ export class Decoder {
    * @returns The previous offset.
    * @example
    * ```ts
-   * //                         (max + max)|(1   + 0)
-   * const buffer = Buffer.from([0xFF, 0xFF, 0x01, 0x00])
+   * //                                    (max + max)|(1   + 0)
+   * const buffer = new Uint8Array([0xFF, 0xFF, 0x01, 0x00])
    * const decoder = new Decoder(buffer)
    * decoder.seek(2) // 0
    * decoder.readUint16() // 1
@@ -84,8 +84,8 @@ export class Decoder {
    * @returns The previous offset.
    * @example
    * ```ts
-   * //                         (max + max)|(1   + 0)
-   * const buffer = Buffer.from([0xff, 0xff, 0x01, 0x00])
+   * //                                    (max + max)|(1   + 0)
+   * const buffer = new Uint8Array([0xff, 0xff, 0x01, 0x00])
    * const decoder = new Decoder(buffer)
    * decoder.readUint16() // 65535
    * decoder.goto(0) // 2
@@ -109,7 +109,7 @@ export class Decoder {
    * @example
    * ```ts
    * // Assume we have a header 5 bytes long, then 3 bytes of padding up to 8 bytes in, then more data
-   * const buffer = Buffer.from([
+   * const buffer = new Uint8Array([
    *   0x74, 0xee, 0xb2, 0x36, 0x0c, 0x00, 0x00, 0x00,
    *   0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
    * ])
@@ -142,13 +142,13 @@ export class Decoder {
    * @returns Value between -128 and 127.
    * @example
    * ```ts
-   * const decoder = new Decoder(Buffer.from([0xff]))
+   * const decoder = new Decoder(new Uint8Array([0xff]))
    * expect(decoder.readInt8()).toBe(-1)
    * ```
    * @example Read via pointer offset
    * ```ts
-   * //                                      (3   + 0)  | pad | -1
-   * const decoder = new Decoder(Buffer.from([0x03, 0x00, 0x00, 0xff]))
+   * //                                               (3   + 0)  | pad | -1
+   * const decoder = new Decoder(new Uint8Array([0x03, 0x00, 0x00, 0xff]))
    * const pointer = decoder.readUint16() // 3
    * decoder.readInt8({ pointer }) // -1
    * ```
@@ -174,13 +174,13 @@ export class Decoder {
    * @returns Value between 0 and 255.
    * @example
    * ```ts
-   * const decoder = new Decoder(Buffer.from([0xff]))
+   * const decoder = new Decoder(new Uint8Array([0xff]))
    * expect(decoder.readInt8()).toBe(255)
    * ```
    * @example Read via pointer offset
    * ```ts
-   * //                                      (3   + 0)  | pad | -1
-   * const decoder = new Decoder(Buffer.from([0x03, 0x00, 0x00, 0xff]))
+   * //                                               (3   + 0)  | pad | -1
+   * const decoder = new Decoder(new Uint8Array([0x03, 0x00, 0x00, 0xff]))
    * const pointer = decoder.readUint16() // 3
    * decoder.readInt8({ pointer }) // 255
    * ```
@@ -377,7 +377,7 @@ export class Decoder {
    * @param opts.length {number} - Length of slice (not inclusive).
    * @param opts.pointer {number} - See {@link Decoder#readUint8}.
    */
-  readBuffer(opts: BufferOptions): Buffer {
+  readBuffer(opts: BufferOptions): Uint8Array {
     const offset = opts.pointer ?? this.#currentOffset
     const result = this.#buffer.subarray(offset, offset + opts.length)
 
@@ -396,17 +396,17 @@ export class Decoder {
    * @param opts.encoding - Defaults to `utf8`.
    * @example Zeroed
    * ```ts
-   * const decoder = new Decoder(Buffer.from([0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x00]))
+   * const decoder = new Decoder(new Uint8Array([0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x00]))
    * decoder.readString({ zeroed: true }) // "hello"
    * ```
    * @example Length
    * ```ts
-   * const decoder = new Decoder(Buffer.from([0x68, 0x65, 0x6c, 0x6c, 0x6f]))
+   * const decoder = new Decoder(new Uint8Array([0x68, 0x65, 0x6c, 0x6c, 0x6f]))
    * decoder.readString({ length: 5 }) // "hello"
    * ```
    */
   readString(opts: StringOptions): string {
-    let strBuffer: Buffer | null = null
+    let strBuffer: Uint8Array | null = null
 
     if ("length" in opts && opts.length != null) {
       strBuffer = this.readBuffer(opts)
@@ -431,6 +431,9 @@ export class Decoder {
       throw new Error("You need to specify either `zeroed` or `length`.")
     }
 
-    return strBuffer.toString(opts.encoding ?? "utf8")
+    this.#textDecoder ??= new TextDecoder(opts.encoding ?? "utf8")
+    return this.#textDecoder.decode(strBuffer)
   }
+
+  #textDecoder!: TextDecoder
 }
