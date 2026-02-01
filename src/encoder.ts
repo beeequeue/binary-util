@@ -1,3 +1,5 @@
+import { allocateUnsafe } from "@easrng.net/allocate"
+
 type BaseOptions = {
   into?: number
 }
@@ -16,10 +18,11 @@ export class Encoder {
   #view: DataView
   #currentOffset = 0
   #littleEndian = true
+  #textEncoder?: TextEncoder
 
   constructor(length: number = 0) {
-    this.#buffer = new Uint8Array(length)
-    this.#view = new DataView(this.#buffer.buffer)
+    this.#buffer = allocateUnsafe(length)
+    this.#view = new DataView(this.#buffer.buffer, this.#buffer.byteOffset, this.#buffer.byteLength)
   }
 
   get currentOffset(): number {
@@ -31,7 +34,7 @@ export class Encoder {
   }
 
   get buffer(): Uint8Array {
-    const newBuffer = new Uint8Array(this.#buffer.length)
+    const newBuffer = allocateUnsafe(this.#buffer.length)
     newBuffer.set(this.#buffer)
     return newBuffer
   }
@@ -40,12 +43,11 @@ export class Encoder {
     this.#littleEndian = endianness === "little"
   }
 
-  // TODO: use transfer or grow instead
   grow(size: number): void {
-    const newBuffer = new Uint8Array(this.#buffer.length + size)
+    const newBuffer = allocateUnsafe(this.#buffer.length + size)
     newBuffer.set(this.#buffer)
     this.#buffer = newBuffer
-    this.#view = new DataView(this.#buffer.buffer)
+    this.#view = new DataView(this.#buffer.buffer, this.#buffer.byteOffset, this.#buffer.byteLength)
   }
 
   growIfNeeded(incomingSize: number): void {
@@ -80,26 +82,6 @@ export class Encoder {
 
     this.#currentOffset += alignment - diff
   }
-
-  // #createSetMethod =
-  //   <Value extends number | bigint = number>(
-  //     size: number,
-  //     littleEndianFunction: BufferWriteFunction,
-  //     bigEndianFunction?: BufferWriteFunction,
-  //   ): WriteNumberFunction<Value> =>
-  //   (value, opts) => {
-  //     if (opts?.into == null || opts.into + size > this.#buffer.length) {
-  //       this.growIfNeeded(size)
-  //     }
-  //
-  //     this.#buffer[
-  //       !this.#littleEndian && bigEndianFunction != null ? bigEndianFunction : littleEndianFunction
-  //     ](value as never, opts?.into ?? this.#currentOffset, size)
-  //
-  //     if (opts?.into == null) {
-  //       this.#currentOffset += size
-  //     }
-  //   }
 
   setInt8: WriteNumberFunction<number> = (value, opts) => {
     if (opts?.into == null || opts.into + 1 > this.#buffer.length) {
@@ -221,6 +203,4 @@ export class Encoder {
       this.#currentOffset += value.length
     }
   }
-
-  #textEncoder!: TextEncoder
 }
