@@ -1,5 +1,11 @@
 # binary-util
 
+## 2.0.1
+
+### Patch Changes
+
+- [`c412a65`](https://github.com/beeequeue/binary-util/commit/c412a6553be7393329145f1e5e1224e58f427d38) - Fix `.alignTo()` function skipping forward if already aligned.
+
 ## 2.0.0
 
 ### Major Changes
