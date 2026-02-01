@@ -143,6 +143,32 @@ describe("integers", () => {
   })
 })
 
+describe(".readBuffer", () => {
+  it("returns part of buffer", () => {
+    const decoder = new Decoder(
+      Buffer.from([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]),
+    )
+    expect(decoder.readBuffer({ length: 2 })).toEqual(Buffer.from([0x01, 0x02]))
+  })
+
+  it("uses currentOffset", () => {
+    const decoder = new Decoder(
+      Buffer.from([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]),
+    )
+    decoder.seek(2)
+    expect(decoder.readBuffer({ length: 2 })).toEqual(Buffer.from([0x03, 0x04]))
+  })
+
+  it("pointer option works", () => {
+    const decoder = new Decoder(
+      Buffer.from([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x09]),
+    )
+    expect(decoder.readBuffer({ pointer: 0x06, length: 2 })).toEqual(
+      Buffer.from([0x08, 0x09]),
+    )
+  })
+})
+
 describe(".readString", () => {
   it("should parse strings correctly", () => {
     const data = Buffer.from("testhelloworld")

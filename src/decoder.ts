@@ -378,10 +378,8 @@ export class Decoder {
    * @param opts.pointer {number} - See {@link Decoder#readUint8}.
    */
   readBuffer(opts: BufferOptions): Buffer {
-    const result = this.#buffer.subarray(
-      this.#currentOffset,
-      this.#currentOffset + opts.length,
-    )
+    const offset = opts.pointer ?? this.#currentOffset
+    const result = this.#buffer.subarray(offset, offset + opts.length)
 
     if (opts.pointer == null) {
       this.#currentOffset += opts.length
