@@ -124,7 +124,14 @@ export class Decoder {
    * @example
    */
   alignTo(alignment: number): void {
-    this.#currentOffset += alignment - (this.#currentOffset % alignment)
+    if (alignment < 1) {
+      throw new Error("Cannot align to a number less than 1.")
+    }
+
+    const remainder = this.#currentOffset % alignment
+    if (remainder !== 0) {
+      this.#currentOffset += alignment - remainder
+    }
   }
 
   /**

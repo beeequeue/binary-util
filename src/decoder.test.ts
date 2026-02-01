@@ -45,17 +45,24 @@ describe(".goto", () => {
 
 describe(".alignTo", () => {
   it("skips forwards correctly if diff if positive", () => {
-    const decoder = new Decoder(Buffer.alloc(10))
+    const decoder = new Decoder(Buffer.alloc(16))
     decoder.seek(12)
     decoder.alignTo(16)
     expect(decoder.currentOffset).toBe(16)
   })
 
   it("skips forwards correctly if diff if negative", () => {
-    const decoder = new Decoder(Buffer.alloc(10))
+    const decoder = new Decoder(Buffer.alloc(16))
     decoder.seek(4)
     decoder.alignTo(16)
     expect(decoder.currentOffset).toBe(16)
+  })
+
+  it("does nothing if already aligned", () => {
+    const decoder = new Decoder(Buffer.alloc(16))
+    decoder.seek(8)
+    decoder.alignTo(4)
+    expect(decoder.currentOffset).toBe(8)
   })
 
   it("example works as described", () => {
