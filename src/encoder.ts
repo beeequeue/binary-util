@@ -12,13 +12,13 @@ type WriteNumberFunction<Value extends number | bigint = number | bigint> = (
 ) => void
 
 export class Encoder {
-  #buffer: Uint8Array
+  #buffer: Uint8Array<ArrayBuffer>
   #view: DataView
   #currentOffset = 0
   #littleEndian = true
 
-  constructor(length: number = 0) {
-    this.#buffer = new Uint8Array(length)
+  constructor(length: number = 0, maxSize: number = 2 ** 30) {
+    this.#buffer = new Uint8Array(new ArrayBuffer(length, { maxByteLength: maxSize }))
     this.#view = new DataView(this.#buffer.buffer)
   }
 
@@ -31,21 +31,16 @@ export class Encoder {
   }
 
   get buffer(): Uint8Array {
-    const newBuffer = new Uint8Array(this.#buffer.length)
-    newBuffer.set(this.#buffer)
-    return newBuffer
+    return new Uint8Array(this.#buffer.buffer)
   }
 
   endianness(endianness: "big" | "little"): void {
     this.#littleEndian = endianness === "little"
   }
 
-  // TODO: use transfer or grow instead
   grow(size: number): void {
-    const newBuffer = new Uint8Array(this.#buffer.length + size)
-    newBuffer.set(this.#buffer)
-    this.#buffer = newBuffer
-    this.#view = new DataView(this.#buffer.buffer)
+    if (size <= 0) return
+    this.#buffer.buffer.resize(this.#buffer.length + size)
   }
 
   growIfNeeded(incomingSize: number): void {
