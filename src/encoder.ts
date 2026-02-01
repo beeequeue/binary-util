@@ -1,4 +1,3 @@
-
 type BaseOptions = {
   into?: number
 }
@@ -41,6 +40,7 @@ export class Encoder {
     this.#littleEndian = endianness === "little"
   }
 
+  // TODO: use transfer or grow instead
   grow(size: number): void {
     const newBuffer = new Uint8Array(this.#buffer.length + size)
     newBuffer.set(this.#buffer)
