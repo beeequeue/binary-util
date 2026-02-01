@@ -1,5 +1,11 @@
 # binary-util
 
+## 2.0.3
+
+### Patch Changes
+
+- [`133316d`](https://github.com/beeequeue/binary-util/commit/133316dd6272f2d5c5ff848822873956bf55c7ea) - Fixed publishing to include built files
+
 ## 2.0.2
 
 ### Patch Changes
