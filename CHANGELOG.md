@@ -1,5 +1,11 @@
 # binary-util
 
+## 2.0.2
+
+### Patch Changes
+
+- [`a68371a`](https://github.com/beeequeue/binary-util/commit/a68371a5817df52d7c6e7e1ea02c8ea677f114aa) - Fixed `.readBuffer()` not using `pointer` option for offset.
+
 ## 2.0.1
 
 ### Patch Changes
