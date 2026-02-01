@@ -2,7 +2,7 @@
   "name": "binary-util",
   "description": "A utility library for working with binary data.",
   "type": "module",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "author": "BeeeQueue <adam@haglund.dev>",
   "repository": {
     "type": "github",
