@@ -111,3 +111,6 @@ jobs:
         with:
           base-packages: ./base-packages/*.tgz
           source-packages: ./source-packages/*.tgz
+          duplicate-threshold: 2
+          pack-size-threshold: -1
+          size-threshold: -1
