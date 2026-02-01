@@ -1,5 +1,3 @@
-import { Buffer } from "node:buffer"
-
 import { describe, expect, it } from "vitest"
 
 // eslint-disable-next-line antfu/no-import-dist
@@ -7,7 +5,7 @@ import { Decoder } from "../dist/decoder.mjs"
 
 describe(".currentOffset", () => {
   it("example works as described", () => {
-    const buffer = Buffer.from([0x01, 0x01, 0x00, 0x00])
+    const buffer = new Uint8Array([0x01, 0x01, 0x00, 0x00])
     const decoder = new Decoder(buffer)
     expect(decoder.readUint32()).toBe(257)
     expect(decoder.currentOffset).toBe(4)
@@ -16,7 +14,7 @@ describe(".currentOffset", () => {
 
 describe(".endianness", () => {
   it("example works as described", () => {
-    const buffer = Buffer.from([0x00, 0x00, 0x01, 0x01])
+    const buffer = new Uint8Array([0x00, 0x00, 0x01, 0x01])
     const decoder = new Decoder(buffer)
     decoder.endianness("big")
     expect(decoder.readUint32()).toBe(257)
@@ -25,7 +23,7 @@ describe(".endianness", () => {
 
 describe(".seek", () => {
   it("example works as described", () => {
-    const buffer = Buffer.from([0xff, 0xff, 0x01, 0x00])
+    const buffer = new Uint8Array([0xff, 0xff, 0x01, 0x00])
     const decoder = new Decoder(buffer)
     expect(decoder.seek(2)).toBe(0)
     expect(decoder.readUint16()).toBe(1)
@@ -34,7 +32,7 @@ describe(".seek", () => {
 
 describe(".goto", () => {
   it("example works as described", () => {
-    const buffer = Buffer.from([0xff, 0xff, 0x01, 0x00])
+    const buffer = new Uint8Array([0xff, 0xff, 0x01, 0x00])
     const decoder = new Decoder(buffer)
     expect(decoder.readUint16()).toBe(65535)
     expect(decoder.goto(0)).toBe(2)
@@ -45,21 +43,21 @@ describe(".goto", () => {
 
 describe(".alignTo", () => {
   it("skips forwards correctly if diff if positive", () => {
-    const decoder = new Decoder(Buffer.alloc(16))
+    const decoder = new Decoder(new Uint8Array(16))
     decoder.seek(12)
     decoder.alignTo(16)
     expect(decoder.currentOffset).toBe(16)
   })
 
   it("skips forwards correctly if diff if negative", () => {
-    const decoder = new Decoder(Buffer.alloc(16))
+    const decoder = new Decoder(new Uint8Array(16))
     decoder.seek(4)
     decoder.alignTo(16)
     expect(decoder.currentOffset).toBe(16)
   })
 
   it("does nothing if already aligned", () => {
-    const decoder = new Decoder(Buffer.alloc(16))
+    const decoder = new Decoder(new Uint8Array(16))
     decoder.seek(8)
     decoder.alignTo(4)
     expect(decoder.currentOffset).toBe(8)
@@ -68,7 +66,7 @@ describe(".alignTo", () => {
   it("example works as described", () => {
     // prettier-ignore
     // Assume we have a header 5 bytes long, then 3 bytes of padding up to 8 bytes in, then more data
-    const buffer = Buffer.from([
+    const buffer = new Uint8Array([
       0x74, 0xee, 0xb2, 0x36, 0x0c, 0x00, 0x00, 0x00,
       0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     ])
@@ -85,13 +83,13 @@ describe(".alignTo", () => {
 describe("integers", () => {
   describe(".readInt8", () => {
     it("example works as described", () => {
-      const decoder = new Decoder(Buffer.from([0xff]))
+      const decoder = new Decoder(new Uint8Array([0xff]))
       expect(decoder.readInt8()).toBe(-1)
     })
 
     it("pointer example works as described", () => {
-      //                                      (3   + 0)  | pad | -1
-      const decoder = new Decoder(Buffer.from([0x03, 0x00, 0x00, 0xff]))
+      //                                             (3   + 0)  | pad | -1
+      const decoder = new Decoder(new Uint8Array([0x03, 0x00, 0x00, 0xff]))
       const pointer = decoder.readUint16()
       expect(pointer).toBe(3)
       expect(decoder.readInt8({ pointer })).toBe(-1)
@@ -100,13 +98,13 @@ describe("integers", () => {
 
   describe(".readUint8", () => {
     it("example works as described", () => {
-      const decoder = new Decoder(Buffer.from([0xff]))
+      const decoder = new Decoder(new Uint8Array([0xff]))
       expect(decoder.readUint8()).toBe(255)
     })
 
     it("pointer example works as described", () => {
-      //                                      (3   + 0)  | pad | -1
-      const decoder = new Decoder(Buffer.from([0x03, 0x00, 0x00, 0xff]))
+      //                                             (3   + 0)  | pad | -1
+      const decoder = new Decoder(new Uint8Array([0x03, 0x00, 0x00, 0xff]))
       const pointer = decoder.readUint16()
       expect(pointer).toBe(3)
       expect(decoder.readUint8({ pointer })).toBe(255)
@@ -115,12 +113,12 @@ describe("integers", () => {
 
   describe(".readInt16", () => {
     it("example works as described", () => {
-      const decoder = new Decoder(Buffer.from([0xff, 0xff]))
+      const decoder = new Decoder(new Uint8Array([0xff, 0xff]))
       expect(decoder.readInt16()).toBe(-1)
     })
 
     it("pointer example works as described", () => {
-      const decoder = new Decoder(Buffer.from([0x03, 0x00, 0x00, 0xff, 0xff]))
+      const decoder = new Decoder(new Uint8Array([0x03, 0x00, 0x00, 0xff, 0xff]))
       const pointer = decoder.readUint16()
       expect(pointer).toBe(3)
       expect(decoder.readInt16({ pointer })).toBe(-1)
@@ -129,13 +127,13 @@ describe("integers", () => {
 
   describe(".readUint16", () => {
     it("decodes a value correctly", () => {
-      const decoder = new Decoder(Buffer.from([0xff, 0xff]))
+      const decoder = new Decoder(new Uint8Array([0xff, 0xff]))
       expect(decoder.readUint16()).toBe(65535)
     })
 
     it("decodes a value via a pointer correctly", () => {
-      //                                      (3   + 0)  | pad | -1
-      const decoder = new Decoder(Buffer.from([0x03, 0x00, 0x00, 0xff, 0xff]))
+      //                                             (3   + 0)  | pad | -1
+      const decoder = new Decoder(new Uint8Array([0x03, 0x00, 0x00, 0xff, 0xff]))
       const pointer = decoder.readUint16()
       expect(pointer).toBe(3)
       expect(decoder.readUint16({ pointer })).toBe(65535)
@@ -146,32 +144,32 @@ describe("integers", () => {
 describe(".readBuffer", () => {
   it("returns part of buffer", () => {
     const decoder = new Decoder(
-      Buffer.from([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]),
+      new Uint8Array([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]),
     )
-    expect(decoder.readBuffer({ length: 2 })).toEqual(Buffer.from([0x01, 0x02]))
+    expect(decoder.readBuffer({ length: 2 })).toEqual(new Uint8Array([0x01, 0x02]))
   })
 
   it("uses currentOffset", () => {
     const decoder = new Decoder(
-      Buffer.from([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]),
+      new Uint8Array([0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08]),
     )
     decoder.seek(2)
-    expect(decoder.readBuffer({ length: 2 })).toEqual(Buffer.from([0x03, 0x04]))
+    expect(decoder.readBuffer({ length: 2 })).toEqual(new Uint8Array([0x03, 0x04]))
   })
 
   it("pointer option works", () => {
     const decoder = new Decoder(
-      Buffer.from([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x09]),
+      new Uint8Array([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x09]),
     )
     expect(decoder.readBuffer({ pointer: 0x06, length: 2 })).toEqual(
-      Buffer.from([0x08, 0x09]),
+      new Uint8Array([0x08, 0x09]),
     )
   })
 })
 
 describe(".readString", () => {
   it("should parse strings correctly", () => {
-    const data = Buffer.from("testhelloworld")
+    const data = new TextEncoder().encode("testhelloworld")
 
     const decoder = new Decoder(data)
     expect(decoder.readString({ length: 4 })).toBe("test")
@@ -180,7 +178,7 @@ describe(".readString", () => {
   })
 
   it("should parse zeroed strings correctly", () => {
-    const data = Buffer.from("test\x00hello\x00world\x00")
+    const data = new TextEncoder().encode("test\x00hello\x00world\x00")
 
     const decoder = new Decoder(data)
     expect(decoder.readString({ zeroed: true })).toBe("test")
@@ -190,7 +188,7 @@ describe(".readString", () => {
 })
 
 it("should parse the README example", () => {
-  const data = Buffer.from([
+  const data = new Uint8Array([
     0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x57, 0x6f, 0x72, 0x6c, 0x64, 0x21,
   ])
   const decoder = new Decoder(data)
@@ -200,7 +198,9 @@ it("should parse the README example", () => {
   expect(decoder.readString({ length: 7 })).toBe(", World")
 
   // Or you can use it more ergonomically when possible
-  const decoder2 = new Decoder(Buffer.alloc(2, 2))
+  const filledArray = new Uint8Array(2)
+  filledArray.fill(2)
+  const decoder2 = new Decoder(filledArray)
   const result = {
     a: decoder2.readUint8(),
     b: decoder2.readUint8(),
@@ -210,7 +210,7 @@ it("should parse the README example", () => {
 })
 
 it("should allow parsing simple data", () => {
-  const testBuffer = Buffer.alloc(17)
+  const testBuffer = new Uint8Array(17)
   const values = [3257, 3263, 6483, 9773]
   const view = new DataView(testBuffer.buffer)
   view.setInt8(0, 4)

@@ -214,14 +214,16 @@ describe(".setString", () => {
     const encoder = new Encoder(5)
     encoder.setString("test")
 
-    expect(encoder.buffer.toString()).toBe("test\x00")
+    const textDecoder = new TextDecoder()
+    expect(textDecoder.decode(encoder.buffer)).toBe("test\x00")
   })
 
   it("should write 2-byte characters correctly", () => {
     const encoder = new Encoder()
     encoder.setString("Ûbercharge")
 
-    expect(encoder.buffer.toString()).toBe("Ûbercharge\x00")
+    const textDecoder = new TextDecoder()
+    expect(textDecoder.decode(encoder.buffer)).toBe("Ûbercharge\x00")
   })
 
   it("should grow the buffer if needed", () => {
@@ -232,6 +234,7 @@ describe(".setString", () => {
     const buffer = encoder.buffer
     expect(buffer.length).toBe(7)
     expect(buffer[0]).toBe(1)
-    expect(buffer.subarray(2).toString("utf8")).toBe("test\x00")
+    const textDecoder = new TextDecoder()
+    expect(textDecoder.decode(buffer.subarray(2))).toBe("test\x00")
   })
 })
