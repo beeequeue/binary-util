@@ -1,5 +1,3 @@
-import { TextDecoder } from "node:util"
-
 type BaseOptions = {
   pointer?: number
 }
