@@ -5,9 +5,9 @@
 [![Open on npmx.dev](https://npmx.dev/api/registry/badge/size/binary-util)](https://npmx.dev/package/binary-util)
 [![npm bundle size](https://img.shields.io/badge/bundled%20size-3.8%20kB-blue?labelColor=000)](https://bundlejs.com/?bundle&q=binary-util&treeshake=[*])
 
-A utility library for working with binary data in.
+A library to simplify parsing and building binary data.
 
-It does not have full support for all types of data, but it does have the ones I needed. :^)
+It does not support all types of data, but it does have the ones I needed. :^)
 
 ## Usage
 
