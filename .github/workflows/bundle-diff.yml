@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
           ref: main # or your default branch
@@ -29,7 +29,7 @@ jobs:
         id: cache
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5
+      - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: ${{ steps.cache.outputs.path }}
           key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -44,7 +44,7 @@ jobs:
       - name: Pack
         run: npm pack
 
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: base-packages
           path: "*.tgz"
@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
@@ -66,7 +66,7 @@ jobs:
         id: cache
         run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5
+      - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: ${{ steps.cache.outputs.path }}
           key: v1-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -81,7 +81,7 @@ jobs:
       - name: Pack
         run: npm pack
 
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: source-packages
           path: "*.tgz"
@@ -94,20 +94,20 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
           fetch-depth: 0 # allows the diff action to access git history
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: base-packages
           path: ./base-packages
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: source-packages
           path: ./source-packages
       - name: Create Diff
-        uses: e18e/action-dependency-diff@1d7c22bc4294a760e988dff8ea7857e9663cba14 # v1.4.3
+        uses: e18e/action-dependency-diff@d995338f3b229fe7b2cd82048df5da930f70c7c3 # v1.4.4
         with:
           base-packages: ./base-packages/*.tgz
           source-packages: ./source-packages/*.tgz
