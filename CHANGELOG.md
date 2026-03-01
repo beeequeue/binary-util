@@ -1,5 +1,11 @@
 # binary-util
 
+## 2.0.4
+
+### Patch Changes
+
+- [`0c7375d`](https://github.com/beeequeue/binary-util/commit/0c7375dc5834f742dfff393834349686ef044088) - Fixed `into` being required in encoder function options
+
 ## 2.0.3
 
 ### Patch Changes
