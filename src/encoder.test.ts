@@ -234,4 +234,13 @@ describe(".setString", () => {
     expect(buffer[0]).toBe(1)
     expect(buffer.subarray(2).toString("utf8")).toBe("test\x00")
   })
+
+  it("uses the provided encoding", () => {
+    const encoder = new Encoder()
+    encoder.setString("TEST", { encoding: "utf-16le" })
+
+    const buffer = encoder.buffer
+    expect(buffer.toString("utf-16le")).toBe("TEST\x00")
+    expect(buffer.toString("utf8")).not.toBe("TEST\x00")
+  })
 })

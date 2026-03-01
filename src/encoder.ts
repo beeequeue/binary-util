@@ -9,7 +9,7 @@ type EndsWith<E extends keyof Buffer, P extends string> = E extends `${string}${
   : never
 
 type BaseOptions = {
-  into: number
+  into?: number
 }
 
 type StringOptions = BaseOptions & {
