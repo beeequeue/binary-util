@@ -22,8 +22,7 @@
     ]
   },
   "files": [
-    "dist",
-    "CHANGELOG.md"
+    "dist"
   ],
   "exports": {
     "default": "./dist/index.mjs"
