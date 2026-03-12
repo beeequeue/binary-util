@@ -9,7 +9,6 @@ overrides:
   "@antfu/eslint-config>toml-eslint-parser": "-"
   eslint-plugin-pnpm>jsonc-eslint-parser: "-"
   rolldown: 1.0.0-rc.9
-  vite: 8.0.0-beta.18
 
 enableGlobalVirtualStore: false
 
@@ -19,6 +18,9 @@ minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@oxc-project/*"
   - "@rolldown/*"
+  - "@vitest/*"
   - rolldown
   - tsdown
   - unrun
+  - vite
+  - vitest
