@@ -1,5 +1,11 @@
 # binary-util
 
+## 2.0.5
+
+### Patch Changes
+
+- [`89a527c`](https://github.com/beeequeue/binary-util/commit/89a527cc372f873c70676772690bde834c2cf33e) - Removed `CHANGELOG.md` from published files
+
 ## 2.0.4
 
 ### Patch Changes
