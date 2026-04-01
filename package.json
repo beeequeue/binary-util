@@ -38,7 +38,7 @@
     "@antfu/eslint-config": "7.7.0",
     "@changesets/changelog-github": "1.0.0-next.1",
     "@changesets/cli": "3.0.0-next.1",
-    "@tsconfig/node22": "22.0.5",
+    "@tsconfig/node24": "24.0.0",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "22.19.15",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
