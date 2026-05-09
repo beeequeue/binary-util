@@ -10,10 +10,12 @@ overrides:
   eslint-plugin-pnpm>jsonc-eslint-parser: "-"
   rolldown: 1.0.0-rc.9
 
-enableGlobalVirtualStore: false
+allowBuilds:
+  simple-git-hooks: false
 
-savePrefix: ""
-shellEmulator: true
+dedupePeerDependents: true
+dedupePeers: true
+
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@oxc-project/*"
@@ -24,3 +26,6 @@ minimumReleaseAgeExclude:
   - unrun
   - vite
   - vitest
+
+savePrefix: ""
+shellEmulator: true
