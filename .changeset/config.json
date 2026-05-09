@@ -3,7 +3,7 @@
   "access": "public",
   "baseBranch": "main",
   "changelog": [
-    "./.changeset/changelog-formatter.js",
+    "./changelog-formatter.js",
     {
       "repo": "BeeeQueue/binary-util"
     }
