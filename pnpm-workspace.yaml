@@ -8,7 +8,7 @@ overrides:
   "@antfu/eslint-config>jsonc-eslint-parser": "-"
   "@antfu/eslint-config>toml-eslint-parser": "-"
   eslint-plugin-pnpm>jsonc-eslint-parser: "-"
-  rolldown: 1.0.0-rc.9
+  rolldown: 1.0.0
 
 allowBuilds:
   simple-git-hooks: false
