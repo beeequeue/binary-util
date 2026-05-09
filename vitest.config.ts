@@ -1,7 +1,7 @@
 import { defineConfig } from "vitest/config"
 
 export default defineConfig({
-  experimental: { enableNativePlugin: true },
+  // experimental: { preParse: true },
   test: {
     experimental: {
       viteModuleRunner: false,
