@@ -1,5 +1,13 @@
 # binary-util
 
+## 2.0.5
+
+### Patch Changes
+
+- [`89a527c`](https://github.com/beeequeue/binary-util/commit/89a527cc372f873c70676772690bde834c2cf33e) - Removed `CHANGELOG.md` from published files
+
+- [`9a63048`](https://github.com/beeequeue/binary-util/commit/9a63048b9f7e9ca3d3d848c9bd8ee2310547a325) - Removed JSDOC comments from JS files as they are already present in the `.d.ts` files.
+
 ## 2.0.4
 
 ### Patch Changes
