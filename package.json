@@ -35,20 +35,20 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "8.2.0",
+    "@antfu/eslint-config": "9.0.0",
     "@changesets/changelog-github": "1.0.0-next.3",
     "@changesets/cli": "3.0.0-next.3",
-    "@tsconfig/node24": "24.0.0",
+    "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "22.19.15",
-    "@typescript/native-preview": "7.0.0-dev.20260509.2",
-    "@vitest/coverage-v8": "4.1.5",
-    "eslint": "10.3.0",
-    "lint-staged": "17.0.3",
+    "@types/node": "22.19.19",
+    "@typescript/native-preview": "7.0.0-dev.20260518.1",
+    "@vitest/coverage-v8": "4.1.6",
+    "eslint": "10.4.0",
+    "lint-staged": "17.0.5",
     "prettier": "3.8.3",
-    "publint": "0.3.20",
+    "publint": "0.3.21",
     "simple-git-hooks": "2.13.1",
     "tsdown": "0.22.0",
-    "vitest": "4.1.5"
+    "vitest": "4.1.6"
   }
 }
