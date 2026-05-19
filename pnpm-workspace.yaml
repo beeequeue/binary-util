@@ -13,6 +13,7 @@ overrides:
 allowBuilds:
   simple-git-hooks: false
 
+blockExoticSubdeps: false
 dedupePeerDependents: true
 dedupePeers: true
 

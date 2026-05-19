@@ -36,8 +36,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "9.0.0",
-    "@changesets/changelog-github": "1.0.0-next.3",
-    "@changesets/cli": "3.0.0-next.3",
+    "@changesets/changelog-github": "https://pkg.pr.new/changesets/changesets/@changesets/changelog-github@bd27256",
+    "@changesets/cli": "https://pkg.pr.new/changesets/changesets/@changesets/cli@bd27256",
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "22.19.19",
