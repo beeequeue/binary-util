@@ -13,20 +13,12 @@ overrides:
 allowBuilds:
   simple-git-hooks: false
 
-blockExoticSubdeps: false
 dedupePeerDependents: true
 dedupePeers: true
 
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
-  - "@oxc-project/*"
-  - "@rolldown/*"
-  - "@vitest/*"
-  - rolldown
-  - tsdown
-  - unrun
-  - vite
-  - vitest
+  - "@changesets/*"
 
 savePrefix: ""
 shellEmulator: true

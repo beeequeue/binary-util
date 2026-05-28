@@ -25,11 +25,11 @@ importers:
         specifier: 9.0.0
         version: 9.0.0(@typescript-eslint/rule-tester@8.56.1)(@typescript-eslint/typescript-estree@8.59.3)(@typescript-eslint/utils@8.59.3)(eslint@10.4.0)(typescript@5.9.3)(vitest@4.1.6)
       '@changesets/changelog-github':
-        specifier: https://pkg.pr.new/changesets/changesets/@changesets/changelog-github@bd27256
-        version: https://pkg.pr.new/changesets/changesets/@changesets/changelog-github@bd27256
+        specifier: 1.0.0-next.5
+        version: 1.0.0-next.5
       '@changesets/cli':
-        specifier: https://pkg.pr.new/changesets/changesets/@changesets/cli@bd27256
-        version: https://pkg.pr.new/changesets/changesets/@changesets/cli@bd27256
+        specifier: 3.0.0-next.5
+        version: 3.0.0-next.5
       '@tsconfig/node24':
         specifier: 24.0.4
         version: 24.0.4
@@ -180,89 +180,73 @@ packages:
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
 
-  '@changesets/apply-release-plan@https://pkg.pr.new/changesets/changesets/@changesets/apply-release-plan@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/apply-release-plan@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 8.0.0-next.4
+  '@changesets/apply-release-plan@8.0.0-next.5':
+    resolution: {integrity: sha512-srtEKIe1xPiVND0J1SIKjO+wsfOZObPVHOLspQuIUDQhaiq7RoF+O8ygdfSJ5hNu78pyE2urtQV6b8fSxTjuKg==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/assemble-release-plan@https://pkg.pr.new/changesets/changesets/@changesets/assemble-release-plan@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/assemble-release-plan@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 7.0.0-next.4
+  '@changesets/assemble-release-plan@7.0.0-next.5':
+    resolution: {integrity: sha512-IrDlC3spxd5Bb5VT4utRbmFhWzgUn6xUQ2029cLvVHHwkVxIBPKL77G8tLD8bKBiIaRv5gl6cWcv+uMX7iLyGQ==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/changelog-git@https://pkg.pr.new/changesets/changesets/@changesets/changelog-git@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/changelog-git@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.4
+  '@changesets/changelog-git@1.0.0-next.5':
+    resolution: {integrity: sha512-lGyIWNGkPnY6yiwbFeWtf9yzjoMl0jmzwIGH24cAV9ZzKl0lLvjjlYTbcfZymqVcPqBSQEr2UQNg0ED4h7xlnQ==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/changelog-github@https://pkg.pr.new/changesets/changesets/@changesets/changelog-github@bd27256':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/changelog-github@bd27256}
-    version: 1.0.0-next.4
+  '@changesets/changelog-github@1.0.0-next.5':
+    resolution: {integrity: sha512-c9q7QUmBYCKKCjhW/0U2W8ZNqtOixB1DShU0Y9FHNwYL8w76YVTz+MZiLEGCKXAEduibEUdcJYIQiaSAxQR0dQ==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/cli@https://pkg.pr.new/changesets/changesets/@changesets/cli@bd27256':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/cli@bd27256}
-    version: 3.0.0-next.4
+  '@changesets/cli@3.0.0-next.5':
+    resolution: {integrity: sha512-jminqSK3VQj9kSolTfcAE6M54C8M0MFs5f25BxbVfY6+oqPMlMevTFrHXa1XfcUkYEgy7dUCHEo21A8k1nLFmQ==}
     engines: {node: ^22.11 || ^24 || >=26}
     hasBin: true
 
-  '@changesets/config@https://pkg.pr.new/changesets/changesets/@changesets/config@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/config@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 4.0.0-next.4
+  '@changesets/config@4.0.0-next.5':
+    resolution: {integrity: sha512-2te/SEbDJ2h8xFf6+uQJYtuOAlkswwtxodsS6uijEky0ImNP+sURPL7LkoW4FCUKCCZmPevbh++kpIXm4WmhWw==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/errors@https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.2
+  '@changesets/errors@1.0.0-next.3':
+    resolution: {integrity: sha512-p0JrarlyfkpnIK9L1Y8JKoF78IgKEzRPVbG/13gToDpvfV1cWqOVuoDLVCTQjYTwmaHusOmrnuQUlsO88AvP4Q==}
     engines: {node: ^22.11 || ^24 || >=26}
 
   '@changesets/format@0.1.0':
     resolution: {integrity: sha512-m3ScsTpVqQJu6WOV36vpGozJPBu5JWaFXAhG1/yRnzbOnyqomuPrIfm+LeE0PmX4HWPs9Fh4MDH4aDISEsjZaA==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/get-dependents-graph@https://pkg.pr.new/changesets/changesets/@changesets/get-dependents-graph@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/get-dependents-graph@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 3.0.0-next.4
+  '@changesets/get-dependents-graph@3.0.0-next.5':
+    resolution: {integrity: sha512-sKjcHoA0p0vV1jBid9emhy5lsPemzBOq5LBo2M9o/zDtfF9p8hCAC/ULjJ66hngBVmdV54G8WeNhMnG6oln/nQ==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/get-github-info@https://pkg.pr.new/changesets/changesets/@changesets/get-github-info@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/get-github-info@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.2
+  '@changesets/get-github-info@1.0.0-next.2':
+    resolution: {integrity: sha512-Lu63xxq8yZZ3dfm7QHBU6G55MeP9lFWz/eeUyEUQ5BW5MY69EF2QDIvkMaU5h8d0JoGIlDhsi4W+iket/hrEvA==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/git@https://pkg.pr.new/changesets/changesets/@changesets/git@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/git@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 4.0.0-next.4
+  '@changesets/git@4.0.0-next.5':
+    resolution: {integrity: sha512-dhQ5qxmxVy8vQD6TBjNuVB3cv3MoyKogFIX+LFXi4hWceXeysOKuVytpAX84ywQw401uHuYlObZSU6qyj/hzzw==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/parse@https://pkg.pr.new/changesets/changesets/@changesets/parse@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/parse@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.4
+  '@changesets/parse@1.0.0-next.5':
+    resolution: {integrity: sha512-SbIeZdWHhCVmt3EAx++1eqWnTMDlUYsk32kxNqhW5rS1r9NwLF1NY38Uqh2rLszE1OgJtjSJqRb6Z5PaPw4mxQ==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/pre@https://pkg.pr.new/changesets/changesets/@changesets/pre@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/pre@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 3.0.0-next.4
+  '@changesets/pre@3.0.0-next.5':
+    resolution: {integrity: sha512-vxcIPxRGrPaDZpNCJMahl1/xZa+bD9bhxEbJAde/lyvzPqA4lS7ugdtDNuobeRlothw8SGGjBSS8c+VouPDD5w==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/read@https://pkg.pr.new/changesets/changesets/@changesets/read@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/read@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.4
+  '@changesets/read@1.0.0-next.5':
+    resolution: {integrity: sha512-glsdwJHcXEdlmaJTV7WN2pQScESHSGp3aGiR6d0mDpI6eIsS0gVXP0PPK5Aw3zgQljrsS+ylXU//MFCr+ypuLA==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/should-skip-package@https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.4
+  '@changesets/should-skip-package@1.0.0-next.5':
+    resolution: {integrity: sha512-KGlx6MPs8QZvQzB27J4ZElufmVF5o0yps8LdqNY6MWaBe9esgVq3neFE07p5tPaj/ZIS1m038atwkh4Z0Kl9yA==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/types@https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 7.0.0-next.4
+  '@changesets/types@7.0.0-next.5':
+    resolution: {integrity: sha512-K/JHm6kBQ5FqCHHptJFqVyCrpj8oxtDMbBchlK5/7mxZ7FcGynQj08r6YSn1mvRg1waYsLKgzCeu4wvzCgJJjQ==}
     engines: {node: ^22.11 || ^24 || >=26}
 
-  '@changesets/write@https://pkg.pr.new/changesets/changesets/@changesets/write@bd2725600fb88769263072a89d200f365cf61cb9':
-    resolution: {tarball: https://pkg.pr.new/changesets/changesets/@changesets/write@bd2725600fb88769263072a89d200f365cf61cb9}
-    version: 1.0.0-next.4
+  '@changesets/write@1.0.0-next.5':
+    resolution: {integrity: sha512-EKZIKPqHnK1GKljvOUgyNoEsNJ06uDd1d+MGzgjMeMbeIk3Y4a9oeFw7pqEFe80HfxHTVn3tyYYVVD0ImaR1yw==}
     engines: {node: ^22.11 || ^24 || >=26}
 
   '@clack/core@1.3.1':
@@ -894,8 +878,8 @@ packages:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
 
-  dataloader@2.2.3:
-    resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
+  dataloader@1.4.0:
+    resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -2017,48 +2001,48 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
-  '@changesets/apply-release-plan@https://pkg.pr.new/changesets/changesets/@changesets/apply-release-plan@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/apply-release-plan@8.0.0-next.5':
     dependencies:
-      '@changesets/config': https://pkg.pr.new/changesets/changesets/@changesets/config@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/config': 4.0.0-next.5
       '@changesets/format': 0.1.0
-      '@changesets/git': https://pkg.pr.new/changesets/changesets/@changesets/git@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/should-skip-package': https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/git': 4.0.0-next.5
+      '@changesets/should-skip-package': 1.0.0-next.5
+      '@changesets/types': 7.0.0-next.5
       detect-indent: 7.0.2
       import-meta-resolve: 4.2.0
       semver: 7.8.0
 
-  '@changesets/assemble-release-plan@https://pkg.pr.new/changesets/changesets/@changesets/assemble-release-plan@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/assemble-release-plan@7.0.0-next.5':
     dependencies:
-      '@changesets/errors': https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/get-dependents-graph': https://pkg.pr.new/changesets/changesets/@changesets/get-dependents-graph@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/should-skip-package': https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/errors': 1.0.0-next.3
+      '@changesets/get-dependents-graph': 3.0.0-next.5
+      '@changesets/should-skip-package': 1.0.0-next.5
+      '@changesets/types': 7.0.0-next.5
       semver: 7.8.0
 
-  '@changesets/changelog-git@https://pkg.pr.new/changesets/changesets/@changesets/changelog-git@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/changelog-git@1.0.0-next.5':
     dependencies:
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/types': 7.0.0-next.5
 
-  '@changesets/changelog-github@https://pkg.pr.new/changesets/changesets/@changesets/changelog-github@bd27256':
+  '@changesets/changelog-github@1.0.0-next.5':
     dependencies:
-      '@changesets/get-github-info': https://pkg.pr.new/changesets/changesets/@changesets/get-github-info@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/get-github-info': 1.0.0-next.2
+      '@changesets/types': 7.0.0-next.5
 
-  '@changesets/cli@https://pkg.pr.new/changesets/changesets/@changesets/cli@bd27256':
+  '@changesets/cli@3.0.0-next.5':
     dependencies:
-      '@changesets/apply-release-plan': https://pkg.pr.new/changesets/changesets/@changesets/apply-release-plan@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/assemble-release-plan': https://pkg.pr.new/changesets/changesets/@changesets/assemble-release-plan@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/changelog-git': https://pkg.pr.new/changesets/changesets/@changesets/changelog-git@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/config': https://pkg.pr.new/changesets/changesets/@changesets/config@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/errors': https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/get-dependents-graph': https://pkg.pr.new/changesets/changesets/@changesets/get-dependents-graph@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/git': https://pkg.pr.new/changesets/changesets/@changesets/git@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/pre': https://pkg.pr.new/changesets/changesets/@changesets/pre@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/read': https://pkg.pr.new/changesets/changesets/@changesets/read@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/should-skip-package': https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/write': https://pkg.pr.new/changesets/changesets/@changesets/write@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/apply-release-plan': 8.0.0-next.5
+      '@changesets/assemble-release-plan': 7.0.0-next.5
+      '@changesets/changelog-git': 1.0.0-next.5
+      '@changesets/config': 4.0.0-next.5
+      '@changesets/errors': 1.0.0-next.3
+      '@changesets/get-dependents-graph': 3.0.0-next.5
+      '@changesets/git': 4.0.0-next.5
+      '@changesets/pre': 3.0.0-next.5
+      '@changesets/read': 1.0.0-next.5
+      '@changesets/should-skip-package': 1.0.0-next.5
+      '@changesets/types': 7.0.0-next.5
+      '@changesets/write': 1.0.0-next.5
       '@clack/prompts': 1.4.0
       '@manypkg/get-packages': 3.1.0
       cac: 7.0.0
@@ -2068,64 +2052,64 @@ snapshots:
       semver: 7.8.0
       tinyexec: 1.1.2
 
-  '@changesets/config@https://pkg.pr.new/changesets/changesets/@changesets/config@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/config@4.0.0-next.5':
     dependencies:
-      '@changesets/get-dependents-graph': https://pkg.pr.new/changesets/changesets/@changesets/get-dependents-graph@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/should-skip-package': https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/get-dependents-graph': 3.0.0-next.5
+      '@changesets/should-skip-package': 1.0.0-next.5
+      '@changesets/types': 7.0.0-next.5
       '@manypkg/get-packages': 3.1.0
       picomatch: 4.0.4
 
-  '@changesets/errors@https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9': {}
+  '@changesets/errors@1.0.0-next.3': {}
 
   '@changesets/format@0.1.0':
     dependencies:
       package-manager-detector: 1.6.0
 
-  '@changesets/get-dependents-graph@https://pkg.pr.new/changesets/changesets/@changesets/get-dependents-graph@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/get-dependents-graph@3.0.0-next.5':
     dependencies:
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/types': 7.0.0-next.5
       semver: 7.8.0
 
-  '@changesets/get-github-info@https://pkg.pr.new/changesets/changesets/@changesets/get-github-info@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/get-github-info@1.0.0-next.2':
     dependencies:
-      dataloader: 2.2.3
+      dataloader: 1.4.0
 
-  '@changesets/git@https://pkg.pr.new/changesets/changesets/@changesets/git@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/git@4.0.0-next.5':
     dependencies:
-      '@changesets/errors': https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/errors': 1.0.0-next.3
+      '@changesets/types': 7.0.0-next.5
       '@manypkg/get-packages': 3.1.0
       picomatch: 4.0.4
       tinyexec: 1.1.2
 
-  '@changesets/parse@https://pkg.pr.new/changesets/changesets/@changesets/parse@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/parse@1.0.0-next.5':
     dependencies:
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/types': 7.0.0-next.5
       js-yaml: 4.1.1
 
-  '@changesets/pre@https://pkg.pr.new/changesets/changesets/@changesets/pre@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/pre@3.0.0-next.5':
     dependencies:
-      '@changesets/errors': https://pkg.pr.new/changesets/changesets/@changesets/errors@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/errors': 1.0.0-next.3
+      '@changesets/types': 7.0.0-next.5
       '@manypkg/get-packages': 3.1.0
 
-  '@changesets/read@https://pkg.pr.new/changesets/changesets/@changesets/read@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/read@1.0.0-next.5':
     dependencies:
-      '@changesets/git': https://pkg.pr.new/changesets/changesets/@changesets/git@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/parse': https://pkg.pr.new/changesets/changesets/@changesets/parse@bd2725600fb88769263072a89d200f365cf61cb9
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/git': 4.0.0-next.5
+      '@changesets/parse': 1.0.0-next.5
+      '@changesets/types': 7.0.0-next.5
 
-  '@changesets/should-skip-package@https://pkg.pr.new/changesets/changesets/@changesets/should-skip-package@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/should-skip-package@1.0.0-next.5':
     dependencies:
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/types': 7.0.0-next.5
 
-  '@changesets/types@https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9': {}
+  '@changesets/types@7.0.0-next.5': {}
 
-  '@changesets/write@https://pkg.pr.new/changesets/changesets/@changesets/write@bd2725600fb88769263072a89d200f365cf61cb9':
+  '@changesets/write@1.0.0-next.5':
     dependencies:
       '@changesets/format': 0.1.0
-      '@changesets/types': https://pkg.pr.new/changesets/changesets/@changesets/types@bd2725600fb88769263072a89d200f365cf61cb9
+      '@changesets/types': 7.0.0-next.5
       human-id: 4.1.3
 
   '@clack/core@1.3.1':
@@ -2745,7 +2729,7 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  dataloader@2.2.3: {}
+  dataloader@1.4.0: {}
 
   debug@4.4.3:
     dependencies:
