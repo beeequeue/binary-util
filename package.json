@@ -9,7 +9,7 @@
     "url": "https://github.com/beeequeue/binary-util"
   },
   "license": "MIT",
-  "packageManager": "pnpm@11.0.8",
+  "packageManager": "pnpm@11.4.0",
   "engines": {
     "node": ">=20.19"
   },
