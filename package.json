@@ -9,7 +9,7 @@
     "url": "https://github.com/beeequeue/binary-util"
   },
   "license": "MIT",
-  "packageManager": "pnpm@11.4.0",
+  "packageManager": "pnpm@11.11.0",
   "engines": {
     "node": ">=20.19"
   },
@@ -35,20 +35,20 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "9.0.0",
-    "@changesets/changelog-github": "1.0.0-next.5",
-    "@changesets/cli": "3.0.0-next.5",
+    "@antfu/eslint-config": "9.1.0",
+    "@changesets/changelog-github": "1.0.0-next.6",
+    "@changesets/cli": "3.0.0-next.8",
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "22.19.19",
-    "@typescript/native-preview": "7.0.0-dev.20260527.1",
-    "@vitest/coverage-v8": "4.1.7",
-    "eslint": "10.4.0",
-    "lint-staged": "17.0.5",
-    "prettier": "3.8.3",
+    "@types/node": "26.1.1",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
+    "@vitest/coverage-v8": "5.0.0-beta.6",
+    "eslint": "10.7.0",
+    "lint-staged": "17.0.8",
+    "prettier": "3.9.5",
     "publint": "0.3.21",
     "simple-git-hooks": "2.13.1",
-    "tsdown": "0.22.0",
-    "vitest": "4.1.7"
+    "tsdown": "0.22.7",
+    "vitest": "5.0.0-beta.6"
   }
 }
