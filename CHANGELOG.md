@@ -1,5 +1,11 @@
 # binary-util
 
+## 2.0.6
+
+### Patch Changes
+
+- [`08f50b4`](https://github.com/beeequeue/binary-util/commit/08f50b48e33fb37b27ad75ecfd3a23a16cc5b1c3) - test changeset action 2
+
 ## 2.0.5
 
 ### Patch Changes
