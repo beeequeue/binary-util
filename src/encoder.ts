@@ -1,12 +1,8 @@
 import { Buffer } from "node:buffer"
 
-type StartsWith<E extends keyof Buffer, P extends string> = E extends `${P}${string}`
-  ? E
-  : never
+type StartsWith<E extends keyof Buffer, P extends string> = E extends `${P}${string}` ? E : never
 
-type EndsWith<E extends keyof Buffer, P extends string> = E extends `${string}${P}`
-  ? E
-  : never
+type EndsWith<E extends keyof Buffer, P extends string> = E extends `${string}${P}` ? E : never
 
 type BaseOptions = {
   into?: number
@@ -99,9 +95,7 @@ export class Encoder {
       }
 
       this.#buffer[
-        !this.#littleEndian && bigEndianFunction != null
-          ? bigEndianFunction
-          : littleEndianFunction
+        !this.#littleEndian && bigEndianFunction != null ? bigEndianFunction : littleEndianFunction
       ](value as never, opts?.into ?? this.#currentOffset, size)
 
       if (opts?.into == null) {
@@ -115,19 +109,11 @@ export class Encoder {
 
   setInt16: WriteNumberFunction = this.#createSetMethod(2, "writeInt16LE", "writeInt16BE")
 
-  setUint16: WriteNumberFunction = this.#createSetMethod(
-    2,
-    "writeUInt16LE",
-    "writeUInt16BE",
-  )
+  setUint16: WriteNumberFunction = this.#createSetMethod(2, "writeUInt16LE", "writeUInt16BE")
 
   setInt32: WriteNumberFunction = this.#createSetMethod(4, "writeInt32LE", "writeInt32BE")
 
-  setUint32: WriteNumberFunction = this.#createSetMethod(
-    4,
-    "writeUInt32LE",
-    "writeUInt32BE",
-  )
+  setUint32: WriteNumberFunction = this.#createSetMethod(4, "writeUInt32LE", "writeUInt32BE")
 
   setInt64: WriteNumberFunction<bigint> = this.#createSetMethod(
     8,
@@ -143,11 +129,7 @@ export class Encoder {
 
   setFloat: WriteNumberFunction = this.#createSetMethod(4, "writeFloatLE", "writeFloatBE")
 
-  setDouble: WriteNumberFunction = this.#createSetMethod(
-    8,
-    "writeDoubleLE",
-    "writeDoubleBE",
-  )
+  setDouble: WriteNumberFunction = this.#createSetMethod(8, "writeDoubleLE", "writeDoubleBE")
 
   setString(value: string, opts?: StringOptions): void {
     const data = Buffer.from(`${value}\x00`, opts?.encoding ?? "utf8")

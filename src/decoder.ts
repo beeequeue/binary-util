@@ -1,4 +1,4 @@
-import type { Buffer } from "node:buffer"
+import { type Buffer } from "node:buffer"
 
 type BaseOptions = {
   pointer?: number
@@ -413,10 +413,7 @@ export class Decoder {
     }
 
     if ("zeroed" in opts && opts.zeroed) {
-      const view = new DataView(
-        this.#buffer.buffer,
-        this.#buffer.byteOffset + this.#currentOffset,
-      )
+      const view = new DataView(this.#buffer.buffer, this.#buffer.byteOffset + this.#currentOffset)
 
       let size = 0
       while (view.getUint8(size) !== 0) {

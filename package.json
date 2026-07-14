@@ -18,7 +18,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,json5,yaml,yml,css,scss,md}": [
-      "prettier --write"
+      "oxfmt --no-error-on-unmatched-pattern"
     ]
   },
   "files": [
@@ -29,23 +29,21 @@
   },
   "scripts": {
     "build": "tsdown",
-    "lint": "eslint --flag unstable_native_nodejs_ts_config",
-    "test": "vitest",
-    "typecheck": "tsgo",
-    "prepare": "simple-git-hooks"
+    "lint": "oxlint",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "9.1.0",
     "@changesets/changelog-github": "1.0.0-next.6",
     "@changesets/cli": "3.0.0-next.8",
+    "@e18e/eslint-plugin": "0.5.1",
     "@tsconfig/node24": "24.0.4",
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "26.1.1",
-    "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "@vitest/coverage-v8": "5.0.0-beta.6",
-    "eslint": "10.7.0",
     "lint-staged": "17.0.8",
-    "prettier": "3.9.5",
+    "oxfmt": "0.58.0",
+    "oxlint": "1.73.0",
+    "oxlint-tsgolint": "0.24.0",
     "publint": "0.3.21",
     "simple-git-hooks": "2.13.1",
     "tsdown": "0.22.7",
