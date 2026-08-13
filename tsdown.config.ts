@@ -10,7 +10,7 @@ export default defineConfig({
 
   env: { TEST: false },
 
-  platform: "node",
+  platform: "neutral",
   format: "esm",
   dts: { oxc: true },
   fixedExtension: true,
