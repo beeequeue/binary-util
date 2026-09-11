@@ -33,7 +33,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "1.0.0-next.6",
+    "@changesets/changelog-github": "1.0.1",
     "@changesets/cli": "3.0.0-next.8",
     "@e18e/eslint-plugin": "0.5.1",
     "@tsconfig/node24": "24.0.4",
