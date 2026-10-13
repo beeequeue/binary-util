@@ -18,6 +18,8 @@ dedupePeers: true
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@changesets/*"
+  # Renovate security update: vitest@5.0.0-rc.2
+  - vitest@5.0.0-rc.2
 
 savePrefix: ""
 shellEmulator: true
