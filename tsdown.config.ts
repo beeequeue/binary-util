@@ -12,7 +12,7 @@ export default defineConfig({
 
   platform: "node",
   format: "esm",
-  dts: { oxc: true },
+  dts: { generator: "oxc" },
   fixedExtension: true,
   minify: "dce-only",
 })
