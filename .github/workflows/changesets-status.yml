@@ -1,0 +1,39 @@
+name: changesets-status
+
+on:
+  # zizmor: ignore[dangerous-triggers]
+  pull_request_target:
+
+permissions: {} # require explicitly stating all permissions in each job
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  status:
+    runs-on: ubuntu-slim
+    permissions:
+      contents: read # to check out files in the repo
+    outputs:
+      comment-body: ${{ steps.status.outputs.comment-body }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generate status
+        id: status
+        uses: changesets/action/pr-status@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+
+  comment:
+    needs: status
+    runs-on: ubuntu-slim
+    permissions:
+      pull-requests: write # to create and update comments on PRs
+    steps:
+      - name: Comment on PR
+        uses: changesets/action/pr-comment@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          body: ${{ needs.status.outputs.comment-body }}
